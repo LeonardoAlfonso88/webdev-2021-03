@@ -9,21 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BookCreatorController {
-
-//    @GetMapping("/book/create")
-//    public String BookCardCreator() throws Exception {
-//        BookCreator book = new BookCreator();
-//        return book.execute();
-//    }
-
     @PostMapping("/book/create")
-    public String execute(@RequestBody Request request) throws Exception {
+    public String execute(@RequestBody BookCreateRequest request) throws Exception {
         BookCreator book = new BookCreator();
         return book.execute(request.getId(), request.getTitle(), request.getDescription(), request.getYear(),
                 request.getPrice(), request.getAuthor());
     }
 
-    static class Request{
+    static class BookCreateRequest{
         private String id;
         private String title;
         private String description;

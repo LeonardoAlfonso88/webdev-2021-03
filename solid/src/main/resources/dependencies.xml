@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="xmlFormmater" class="com.webdev.solid.books.services.JsonFormatter"/>
+    <bean id="Jsonformatter" class="com.webdev.solid.books.services.JsonFormatter"/>
+
+    <bean id="bookFormatter" class="com.webdev.solid.books.application.BookFormatter">
+        <constructor-arg ref="xmlFormmater"/>
+    </bean>
+
+<!--    <bean id="bookFormatterController" class="com.webdev.solid.books.controllers.BookFormatterController">-->
+<!--        <property name="useCase" ref="bookFormatter"/>-->
+<!--    </bean>-->
+
+</beans>
