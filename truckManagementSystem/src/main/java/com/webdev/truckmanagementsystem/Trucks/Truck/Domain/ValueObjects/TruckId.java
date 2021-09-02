@@ -1,12 +1,9 @@
 package com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects;
 
-import com.webdev.truckmanagementsystem.Shared.Domain.Aggregate.StringValueObject;
+import com.webdev.truckmanagementsystem.Shared.Domain.Aggregate.CustomUUID;
 
-public class TruckId extends StringValueObject {
-
-    private TruckId() {}
-
-    public TruckId(String Id) {
-        this.value = Id;
+public class TruckId extends CustomUUID {
+    public TruckId(String value) {
+        super(value);
     }
 }

@@ -1,27 +1,35 @@
 package com.webdev.truckmanagementsystem.Trucks.Truck.Domain;
 
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckBrand;
+import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckId;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckModelYear;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckPlate;
 import java.util.Objects;
 
 public class Truck {
 
+    private TruckId truckId;
     private TruckBrand brand;
     private TruckModelYear modelYear;
     private TruckPlate plate;
 
-    public Truck(TruckBrand brand, TruckModelYear modelYear, TruckPlate plate) {
+    public Truck(TruckId truckId, TruckBrand brand, TruckModelYear modelYear, TruckPlate plate) {
+        this.truckId = truckId;
         this.brand = brand;
         this.modelYear = modelYear;
         this.plate = plate;
     }
 
-    public static Truck Create(TruckBrand brand, TruckModelYear modelYear, TruckPlate plate)
+    public static Truck Create(TruckId truckId, TruckBrand brand, TruckModelYear modelYear, TruckPlate plate)
     {
-        Truck truck = new Truck(brand, modelYear, plate);
+        Truck truck = new Truck(truckId, brand, modelYear, plate);
         //TODO: Pasos intermedios o eventos derivados
         return truck;
+    }
+
+    public void UpdatePlate(TruckPlate plate)
+    {
+        this.plate = plate;
     }
 
     @Override
