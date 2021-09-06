@@ -9,19 +9,19 @@ import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckPl
 
 import java.util.Optional;
 
-public class UpdaterTruckPlate {
+public class TruckUpdaterPlate {
 
     private TruckRepository repository;
     private DomainTruckFinder serviceFinder;
 
-    public UpdaterTruckPlate(TruckRepository repository) {
+    public TruckUpdaterPlate(TruckRepository repository) {
         this.repository = repository;
         serviceFinder = new DomainTruckFinder(this.repository);
     }
 
-    public void Execute(String id, String plate) {
+    public void execute(String id, String plate) {
 
-        Truck finalTruck = serviceFinder.Execute(id);
+        Truck finalTruck = serviceFinder.execute(id);
 
         finalTruck.UpdatePlate(new TruckPlate(plate));
 

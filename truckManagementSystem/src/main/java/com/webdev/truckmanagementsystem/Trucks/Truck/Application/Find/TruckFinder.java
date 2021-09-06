@@ -18,7 +18,7 @@ public class TruckFinder {
         serviceFinder = new DomainTruckFinder(this.repository);
     }
 
-    public Truck find(String id) {
-        return serviceFinder.Execute(id);
+    public Truck execute(String id) {
+        return serviceFinder.execute(id);
     }
 }

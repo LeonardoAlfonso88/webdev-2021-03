@@ -15,13 +15,13 @@ public class TruckPlate extends StringValueObject {
         this.value = plate;
     }
 
-    private void validate(String plate) throws RuntimeException {
-        lenghtValidate(plate);
+    private void validate(String plate) {
         plateLetterValidate(plate);
         plateNumericValidate(plate);
+        lenghtValidate(plate);
     }
 
-    private void lenghtValidate(String plate) throws RuntimeException {
+    private void lenghtValidate(String plate) {
         if (plate.length() != 6)
         {
             throw new PlateLengthNotValid("La longitud de la placa no es correcta");

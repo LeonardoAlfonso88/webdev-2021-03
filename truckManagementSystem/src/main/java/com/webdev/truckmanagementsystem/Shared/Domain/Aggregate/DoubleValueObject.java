@@ -2,11 +2,11 @@ package com.webdev.truckmanagementsystem.Shared.Domain.Aggregate;
 
 import java.util.Objects;
 
-public class IntegerValueObject {
+public class DoubleValueObject {
 
-    protected Integer value;
+    protected Double value;
 
-    public Integer value() {
+    public Double value() {
         return value;
     }
 
@@ -14,7 +14,7 @@ public class IntegerValueObject {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        IntegerValueObject that = (IntegerValueObject) o;
+        DoubleValueObject that = (DoubleValueObject) o;
         return Objects.equals(value, that.value);
     }
 

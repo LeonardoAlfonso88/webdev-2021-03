@@ -15,7 +15,7 @@ public class DomainTruckFinder {
         this.repository = repository;
     }
 
-    public Truck Execute(String id) {
+    public Truck execute(String id) {
         Optional<Truck> truckOptional = repository.find(new TruckId(id));
 
         if (truckOptional.isEmpty()) {

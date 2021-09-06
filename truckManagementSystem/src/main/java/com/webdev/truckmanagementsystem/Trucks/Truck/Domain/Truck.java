@@ -1,9 +1,7 @@
 package com.webdev.truckmanagementsystem.Trucks.Truck.Domain;
 
-import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckBrand;
-import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckId;
-import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckModelYear;
-import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckPlate;
+import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.*;
+
 import java.util.Objects;
 
 public class Truck {
@@ -12,17 +10,33 @@ public class Truck {
     private TruckBrand brand;
     private TruckModelYear modelYear;
     private TruckPlate plate;
+    private TruckColor color;
+    private TruckInsuranceValue insuranceValue;
+    private TruckMechanicalRevisionDate mechanicalRevisionDate;
 
-    public Truck(TruckId truckId, TruckBrand brand, TruckModelYear modelYear, TruckPlate plate) {
+    public Truck(TruckId truckId, TruckBrand brand,
+                 TruckModelYear modelYear,
+                 TruckPlate plate,
+                 TruckColor color,
+                 TruckInsuranceValue insuranceValue,
+                 TruckMechanicalRevisionDate mechanicalRevisionDate) {
         this.truckId = truckId;
         this.brand = brand;
         this.modelYear = modelYear;
         this.plate = plate;
+        this.color = color;
+        this.insuranceValue = insuranceValue;
+        this.mechanicalRevisionDate = mechanicalRevisionDate;
     }
 
-    public static Truck Create(TruckId truckId, TruckBrand brand, TruckModelYear modelYear, TruckPlate plate)
+    public static Truck Create(TruckId truckId, TruckBrand brand,
+                               TruckModelYear modelYear,
+                               TruckPlate plate,
+                               TruckColor color,
+                               TruckInsuranceValue insuranceValue,
+                               TruckMechanicalRevisionDate mechanicalRevisionDate)
     {
-        Truck truck = new Truck(truckId, brand, modelYear, plate);
+        Truck truck = new Truck(truckId, brand, modelYear, plate, color, insuranceValue, mechanicalRevisionDate);
         //TODO: Pasos intermedios o eventos derivados
         return truck;
     }

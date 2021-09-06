@@ -21,5 +21,4 @@ public class TruckBrand extends StringValueObject {
             throw new NotEmptyBrand("La marca debe tener un valor");
         }
     }
-
 }

@@ -1,7 +1,7 @@
 package com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Exceptions;
 
-public class NotEmptyBrand extends RuntimeException {
-    public NotEmptyBrand(String message) {
+public class ColorFormatNotValid extends RuntimeException {
+    public ColorFormatNotValid(String message) {
         super(message);
     }
 }
