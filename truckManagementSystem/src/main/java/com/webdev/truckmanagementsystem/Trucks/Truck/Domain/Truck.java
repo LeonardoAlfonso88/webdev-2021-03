@@ -2,6 +2,7 @@ package com.webdev.truckmanagementsystem.Trucks.Truck.Domain;
 
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.*;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Truck {
@@ -44,6 +45,23 @@ public class Truck {
     public void UpdatePlate(TruckPlate plate)
     {
         this.plate = plate;
+    }
+
+    public void UpdateColor(TruckColor color)
+    {
+        this.color = color;
+    }
+
+    public HashMap<String, Object> data() {
+        return new HashMap<String, Object>() {{
+            put("id", truckId.value());
+            put("brand", brand.value());
+            put("modelYear", modelYear.value());
+            put("plate", plate.value());
+            put("color", color.value());
+            put("insuranceValue", insuranceValue.value());
+            put("mechanicalRevisionDate", mechanicalRevisionDate.value());
+        }};
     }
 
     @Override
