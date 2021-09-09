@@ -1,6 +1,7 @@
 package com.webdev.truckmanagementsystem.Trucks.Truck.Application.Create;
 
-import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Exceptions.NotColorCentralValid;
+import com.webdev.truckmanagementsystem.Shared.Domain.Ids.OwnerId;
+import com.webdev.truckmanagementsystem.Shared.Domain.Ids.TruckId;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Ports.TruckColorValidator;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Ports.TruckRepository;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Services.DomainColorCentralValidator;
@@ -25,7 +26,8 @@ public class TruckCreator {
                         String plate,
                         String color,
                         Double insuranceValue,
-                        String mechanicalDate) {
+                        String mechanicalDate,
+                        String owner) {
 
         TruckColor colorVO = serviceColorValidator.execute(color);
 
@@ -35,7 +37,8 @@ public class TruckCreator {
                 new TruckPlate(plate),
                 colorVO,
                 new TruckInsuranceValue(insuranceValue),
-                new TruckMechanicalRevisionDate(mechanicalDate));
+                new TruckMechanicalRevisionDate(mechanicalDate),
+                new OwnerId(owner));
         repository.save(truck);
     }
 }

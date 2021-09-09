@@ -3,7 +3,7 @@ package com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Services;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Exceptions.TruckNotFound;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Ports.TruckRepository;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Truck;
-import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckId;
+import com.webdev.truckmanagementsystem.Shared.Domain.Ids.TruckId;
 
 import java.util.Optional;
 

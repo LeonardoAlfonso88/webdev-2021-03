@@ -1,5 +1,7 @@
 package com.webdev.truckmanagementsystem.Trucks.Truck.Application.UpdatePlate;
 
+import com.webdev.truckmanagementsystem.Shared.Domain.Ids.OwnerId;
+import com.webdev.truckmanagementsystem.Shared.Domain.Ids.TruckId;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Exceptions.PlateFormatNotValid;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Exceptions.PlateLengthNotValid;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Exceptions.TruckNotFound;
@@ -29,7 +31,8 @@ public class TruckUpdaterPlateTest {
                 new TruckPlate("FAA123"),
                 new TruckColor("#454545"),
                 new TruckInsuranceValue(500000d),
-                new TruckMechanicalRevisionDate("05-05-2018"));
+                new TruckMechanicalRevisionDate("05-05-2018"),
+                new OwnerId("6543fbcf-fe01-4c25-a851-a8c46ac38f27"));
 
         //Preparar el mock - implementación falsa
         this.repository = mock(TruckRepository.class);
@@ -50,7 +53,8 @@ public class TruckUpdaterPlateTest {
                 new TruckPlate("ABC123"),
                 new TruckColor("#454545"),
                 new TruckInsuranceValue(500000d),
-                new TruckMechanicalRevisionDate("05-05-2018"));
+                new TruckMechanicalRevisionDate("05-05-2018"),
+                new OwnerId("6543fbcf-fe01-4c25-a851-a8c46ac38f27"));
 
         //Ejecutar el caso de uso
         updater.execute("9007ee55-d8eb-4d0c-b1d5-f66a61ab4aaa", "ABC123");

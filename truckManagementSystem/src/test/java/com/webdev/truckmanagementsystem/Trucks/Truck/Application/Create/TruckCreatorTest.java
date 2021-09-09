@@ -1,6 +1,8 @@
 package com.webdev.truckmanagementsystem.Trucks.Truck.Application.Create;
 
 import com.webdev.truckmanagementsystem.Shared.Domain.Exceptions.UUIDNotValid;
+import com.webdev.truckmanagementsystem.Shared.Domain.Ids.OwnerId;
+import com.webdev.truckmanagementsystem.Shared.Domain.Ids.TruckId;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Exceptions.*;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Ports.TruckColorValidator;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Ports.TruckRepository;
@@ -11,8 +13,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
@@ -32,7 +32,8 @@ public class TruckCreatorTest {
                 new TruckPlate("FAA123"),
                 new TruckColor("#454545"),
                 new TruckInsuranceValue(500000d),
-                new TruckMechanicalRevisionDate("05-05-2018"));
+                new TruckMechanicalRevisionDate("05-05-2018"),
+                new OwnerId("6543fbcf-fe01-4c25-a851-a8c46ac38f27"));
 
         //Preparar el mock - implementación falsa
         this.repository = mock(TruckRepository.class);
@@ -55,7 +56,8 @@ public class TruckCreatorTest {
                 "FAA123",
                 "#454545",
                 500000d,
-                "05-05-2018" );
+                "05-05-2018",
+                "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
 
         //Verificar
         verify(repository, atLeastOnce()).save(truck);
@@ -73,7 +75,8 @@ public class TruckCreatorTest {
                     "FAA123",
                     "#454545",
                     500000d,
-                    "05-05-2018" );
+                    "05-05-2018",
+                    "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
         });
     }
 
@@ -89,7 +92,8 @@ public class TruckCreatorTest {
                     "FAA123",
                     "#454545",
                     500000d,
-                    "05-05-2018" );
+                    "05-05-2018",
+                    "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
         });
     }
 
@@ -105,7 +109,8 @@ public class TruckCreatorTest {
                     "FAA123",
                     "#454545",
                     500000d,
-                    "05-05-2018" );
+                    "05-05-2018",
+                    "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
         });
     }
 
@@ -121,7 +126,8 @@ public class TruckCreatorTest {
                     "FAA123",
                     "#454545",
                     500000d,
-                    "05-05-2018" );
+                    "05-05-2018",
+                    "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
         });
     }
 
@@ -137,7 +143,8 @@ public class TruckCreatorTest {
                     "AAAA5555",
                     "#454545",
                     500000d,
-                    "05-05-2018" );
+                    "05-05-2018",
+                    "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
         });
     }
 
@@ -153,7 +160,8 @@ public class TruckCreatorTest {
                     "ABC12",
                     "#454545",
                     500000d,
-                    "05-05-2018" );
+                    "05-05-2018",
+                    "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
         });
     }
 
@@ -169,7 +177,8 @@ public class TruckCreatorTest {
                     "FAA123",
                     "Red",
                     500000d,
-                    "05-05-2018" );
+                    "05-05-2018",
+                    "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
         });
     }
 
@@ -185,7 +194,8 @@ public class TruckCreatorTest {
                     "FAA123",
                     "#454545",
                     -500000d,
-                    "05-05-2018" );
+                    "05-05-2018",
+                    "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
         });
     }
 
@@ -201,7 +211,8 @@ public class TruckCreatorTest {
                     "FAA123",
                     "#454545",
                     2000000d,
-                    "05-05-2018" );
+                    "05-05-2018",
+                    "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
         });
     }
 
@@ -217,7 +228,8 @@ public class TruckCreatorTest {
                     "FAA123",
                     "#454545",
                     500000d,
-                    "05-25-2018" );
+                    "05-25-2018",
+                    "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
         });
     }
 
@@ -233,7 +245,8 @@ public class TruckCreatorTest {
                     "FAA123",
                     "#45454A",
                     500000d,
-                    "05-25-2018" );
+                    "05-25-2018",
+                    "6543fbcf-fe01-4c25-a851-a8c46ac38f27");
         });
     }
 }

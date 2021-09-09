@@ -1,4 +1,4 @@
-package com.webdev.truckmanagementsystem.Users.Owner.Domain.ValueObjects;
+package com.webdev.truckmanagementsystem.Shared.Domain.Ids;
 
 import com.webdev.truckmanagementsystem.Shared.Domain.Aggregate.CustomUUID;
 

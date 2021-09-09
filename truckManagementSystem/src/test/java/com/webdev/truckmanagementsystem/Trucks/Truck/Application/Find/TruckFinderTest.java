@@ -1,5 +1,7 @@
 package com.webdev.truckmanagementsystem.Trucks.Truck.Application.Find;
 
+import com.webdev.truckmanagementsystem.Shared.Domain.Ids.OwnerId;
+import com.webdev.truckmanagementsystem.Shared.Domain.Ids.TruckId;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Exceptions.TruckNotFound;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Ports.TruckRepository;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Truck;
@@ -30,7 +32,8 @@ public class TruckFinderTest {
                 new TruckPlate("FAA123"),
                 new TruckColor("#454545"),
                 new TruckInsuranceValue(500000d),
-                new TruckMechanicalRevisionDate("05-05-2018"));
+                new TruckMechanicalRevisionDate("05-05-2018"),
+                new OwnerId("6543fbcf-fe01-4c25-a851-a8c46ac38f27"));
 
         //Preparar el mock - implementación falsa
         this.repository = mock(TruckRepository.class);
