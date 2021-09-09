@@ -37,7 +37,8 @@ public class TruckUpdaterColorTest {
                 new TruckColor("#454545"),
                 new TruckInsuranceValue(500000d),
                 new TruckMechanicalRevisionDate("05-05-2018"),
-                new OwnerId("6543fbcf-fe01-4c25-a851-a8c46ac38f27"));
+                new TruckTotalDistance(0d),
+                new OwnerId("6543fbcf-fe01-4c25-a851-a8c46ac38f27"), null, null);
 
         //Preparar el mock - implementación falsa
         this.repository = mock(TruckRepository.class);
@@ -62,7 +63,8 @@ public class TruckUpdaterColorTest {
                 new TruckColor("#AFF444"),
                 new TruckInsuranceValue(500000d),
                 new TruckMechanicalRevisionDate("05-05-2018"),
-                new OwnerId("6543fbcf-fe01-4c25-a851-a8c46ac38f27"));
+                new TruckTotalDistance(0d),
+                new OwnerId("6543fbcf-fe01-4c25-a851-a8c46ac38f27"), null, null);
 
         //Ejecutar el caso de uso
         updater.execute("9007ee55-d8eb-4d0c-b1d5-f66a61ab4aaa", "#AFF444");
