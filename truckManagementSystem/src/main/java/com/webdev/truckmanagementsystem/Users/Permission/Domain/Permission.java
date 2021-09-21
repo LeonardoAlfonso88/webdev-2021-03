@@ -1,6 +1,5 @@
 package com.webdev.truckmanagementsystem.Users.Permission.Domain;
 
-import com.webdev.truckmanagementsystem.Shared.Domain.Exceptions.IdentificationNumberRequired;
 import com.webdev.truckmanagementsystem.Users.Permission.Domain.ValueObjects.*;
 
 import java.util.HashMap;
@@ -14,6 +13,10 @@ public class Permission {
     private PermissionDriverIdentificationNumber identificationNumber;
     private PermissionDriverLicenseNumber licenseNumber;
     private PermissionStatus status;
+    /*
+    DriverId
+    TruckId
+    * */
 
     public Permission(PermissionId permissionId,
                       PermissionDriverFirstName firstName,

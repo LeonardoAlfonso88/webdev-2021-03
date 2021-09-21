@@ -1,5 +1,6 @@
 package com.webdev.truckmanagementsystem.Trucks.Trip.Domain;
 
+import com.webdev.truckmanagementsystem.Shared.Domain.Ids.TripId;
 import com.webdev.truckmanagementsystem.Shared.Domain.Ids.TruckId;
 import com.webdev.truckmanagementsystem.Trucks.Trip.Domain.ValueObjects.*;
 
