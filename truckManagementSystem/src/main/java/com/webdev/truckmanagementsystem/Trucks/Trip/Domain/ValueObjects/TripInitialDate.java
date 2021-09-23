@@ -10,6 +10,10 @@ import java.text.SimpleDateFormat;
 
 public class TripInitialDate extends StringValueObject {
 
+    private TripInitialDate() {
+
+    }
+
     public TripInitialDate(String date) {
         validate(date);
         this.value = date;

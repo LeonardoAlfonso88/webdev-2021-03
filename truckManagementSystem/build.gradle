@@ -19,6 +19,7 @@ dependencies {
     implementation 'org.apache.tomcat:tomcat-dbcp:9.0.29'
     implementation 'org.hibernate:hibernate-core:5.4.9.Final'
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.2'
 }
 
 test {

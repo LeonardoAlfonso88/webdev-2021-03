@@ -8,6 +8,10 @@ import java.util.List;
 
 public class TripStatus extends StringValueObject {
 
+    private TripStatus() {
+
+    }
+
     public TripStatus(String status) {
         validate(status);
         this.value = status;
@@ -19,7 +23,7 @@ public class TripStatus extends StringValueObject {
 
     private void validState(String status) {
         List<String> states = Arrays.asList("start", "process", "finalized");
-        if (!states.contains(value)) {
+        if (!states.contains(status)) {
             throw new NotValidState("El estado del viaje no se encuentra entre los permitidos");
         }
     }

@@ -5,6 +5,10 @@ import com.webdev.truckmanagementsystem.Trucks.Trip.Domain.Exceptions.NotValidTr
 
 public class TripDestiny extends StringValueObject {
 
+    private TripDestiny() {
+
+    }
+
     public TripDestiny(String destiny) {
         validate(destiny);
         this.value = destiny;

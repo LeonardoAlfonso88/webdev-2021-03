@@ -5,4 +5,8 @@
 
     <bean id="TripRepository" class="com.webdev.truckmanagementsystem.Trucks.Trip.Infrastructure.Hibernate.HibernateTripRepository" />
 
+    <bean id="TripCreator" class="com.webdev.truckmanagementsystem.Trucks.Trip.Application.Create.TripCreator">
+        <constructor-arg ref="TripRepository"/>
+    </bean>
+
 </beans>

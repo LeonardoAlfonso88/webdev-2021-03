@@ -7,6 +7,7 @@ import com.webdev.truckmanagementsystem.Trucks.Trip.Domain.Ports.TripRepository;
 import com.webdev.truckmanagementsystem.Trucks.Trip.Domain.Trip;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -14,6 +15,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional("transactional-manager")
 public class HibernateTripRepository extends HibernateRepository<Trip> implements TripRepository {
 
     public HibernateTripRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {

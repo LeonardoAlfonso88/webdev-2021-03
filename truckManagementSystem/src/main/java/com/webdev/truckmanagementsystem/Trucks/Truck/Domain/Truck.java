@@ -115,4 +115,6 @@ public class Truck {
     public int hashCode() {
         return Objects.hash(brand, modelYear, plate);
     }
+
+    private Truck() {}
 }

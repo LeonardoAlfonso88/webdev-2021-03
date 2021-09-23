@@ -47,9 +47,8 @@ public class Trip {
                          TripLoadWeight loadWeight,
                          TripInitialDate initialDate,
                          TripPlannedFinalDate plannedFinalDate,
-                         TripRealFinalDate realFinalDate,
                          TruckId truckId) {
-        Trip trip = new Trip(tripId, origin, destiny, distance, new TripStatus("started"), loadWeight, initialDate, plannedFinalDate, realFinalDate, truckId);
+        Trip trip = new Trip(tripId, origin, destiny, distance, new TripStatus("start"), loadWeight, initialDate, plannedFinalDate, null, truckId);
         //EVENTS
         return trip;
     }
@@ -68,4 +67,6 @@ public class Trip {
             put("truckId", truckId.value());
         }};
     }
+
+    private Trip() {}
 }

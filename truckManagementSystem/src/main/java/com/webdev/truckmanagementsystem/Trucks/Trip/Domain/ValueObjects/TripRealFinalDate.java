@@ -9,6 +9,10 @@ import java.text.SimpleDateFormat;
 
 public class TripRealFinalDate extends StringValueObject {
 
+    private TripRealFinalDate() {
+
+    }
+
     public TripRealFinalDate(String date) {
         validate(date);
         this.value = date;

@@ -6,7 +6,7 @@
 <hibernate-mapping>
     <class name="com.webdev.truckmanagementsystem.Trucks.Trip.Domain.Trip" table="trips">
 
-        <composite-id name="truckId" class="com.webdev.truckmanagementsystem.Shared.Domain.Ids.TripId" access="field">
+        <composite-id name="tripId" class="com.webdev.truckmanagementsystem.Shared.Domain.Ids.TripId" access="field">
             <key-property name="value" column="id" access="field" length="36"/>
         </composite-id>
 
