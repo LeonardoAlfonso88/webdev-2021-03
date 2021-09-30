@@ -5,8 +5,18 @@
 
     <bean id="TripRepository" class="com.webdev.truckmanagementsystem.Trucks.Trip.Infrastructure.Hibernate.HibernateTripRepository" />
 
+    <bean id="TruckRepository" class="com.webdev.truckmanagementsystem.Trucks.Truck.Infrastructure.Hibernate.HibernateTruckRepository" />
+
     <bean id="TripCreator" class="com.webdev.truckmanagementsystem.Trucks.Trip.Application.Create.TripCreator">
         <constructor-arg ref="TripRepository"/>
+    </bean>
+
+    <bean id="TruckCreator" class="com.webdev.truckmanagementsystem.Trucks.Truck.Application.CreateTruck.TruckCreator">
+        <constructor-arg ref="TruckRepository"/>
+    </bean>
+
+    <bean id="TruckAll" class="com.webdev.truckmanagementsystem.Trucks.Truck.Application.All.TruckAll">
+        <constructor-arg ref="TruckRepository"/>
     </bean>
 
 </beans>

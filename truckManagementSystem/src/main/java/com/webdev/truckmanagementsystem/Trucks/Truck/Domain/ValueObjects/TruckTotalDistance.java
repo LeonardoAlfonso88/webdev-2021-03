@@ -4,6 +4,8 @@ import com.webdev.truckmanagementsystem.Shared.Domain.Aggregate.DoubleValueObjec
 
 public class TruckTotalDistance extends DoubleValueObject {
 
+    private TruckTotalDistance() {}
+
     public TruckTotalDistance(Double distance) {
         validate(distance);
         this.value = distance;

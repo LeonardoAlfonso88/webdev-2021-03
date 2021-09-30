@@ -27,8 +27,9 @@ public class HibernateConfigFactory {
         sessionFactory.setHibernateProperties(this.hibernateProperties());
 
         FileSystemResource resource1 = new FileSystemResource("./src/main/java/com/webdev/truckmanagementsystem/Trucks/Trip/Infrastructure/Hibernate/Trip.hbm.xml");
+        FileSystemResource resource2 = new FileSystemResource("./src/main/java/com/webdev/truckmanagementsystem/Trucks/Truck/Infrastructure/Hibernate/Truck.hbm.xml");
 
-        sessionFactory.setMappingLocations(resource1);
+        sessionFactory.setMappingLocations(resource1, resource2);
         return sessionFactory;
     }
 
