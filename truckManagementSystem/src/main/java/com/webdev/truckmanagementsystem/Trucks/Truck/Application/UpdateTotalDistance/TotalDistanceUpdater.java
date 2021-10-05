@@ -1,13 +1,10 @@
 package com.webdev.truckmanagementsystem.Trucks.Truck.Application.UpdateTotalDistance;
 
-import com.webdev.truckmanagementsystem.Shared.Domain.Ids.TruckId;
 import com.webdev.truckmanagementsystem.Trucks.Trip.Application.CalculateTotalDistanceByTruckId.TotalDistanceTripsCalculator;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Ports.TruckRepository;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Services.DomainTruckFinder;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Truck;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckTotalDistance;
-
-import java.util.Optional;
 
 public class TotalDistanceUpdater {
 
@@ -25,7 +22,7 @@ public class TotalDistanceUpdater {
     {
         Truck truck = serviceFinder.execute(truckId);
         double newDistance = useCase.execute(truckId);
-        truck.UpdateDistance(new TruckTotalDistance(newDistance));
+        truck.updateDistance(new TruckTotalDistance(newDistance));
         repository.save(truck);
     }
 }

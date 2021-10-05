@@ -1,12 +1,14 @@
 package com.webdev.truckmanagementsystem.Trucks.Trip.Domain;
 
+import com.webdev.truckmanagementsystem.Shared.Domain.Aggregate.AggregateRoot;
+import com.webdev.truckmanagementsystem.Shared.Domain.DomainEvents.TripFinalizedDomainEvent;
 import com.webdev.truckmanagementsystem.Shared.Domain.Ids.TripId;
 import com.webdev.truckmanagementsystem.Shared.Domain.Ids.TruckId;
 import com.webdev.truckmanagementsystem.Trucks.Trip.Domain.ValueObjects.*;
 
 import java.util.HashMap;
 
-public class Trip {
+public class Trip extends AggregateRoot {
     private TripId tripId;
     private TripOrigin origin;
     private TripDestiny destiny;
@@ -51,6 +53,11 @@ public class Trip {
         Trip trip = new Trip(tripId, origin, destiny, distance, new TripStatus("start"), loadWeight, initialDate, plannedFinalDate, null, truckId);
         //EVENTS
         return trip;
+    }
+
+    public void finalizedTrip() {
+        this.status = new TripStatus("finalized");
+        this.record(new TripFinalizedDomainEvent(this.truckId.value(), this.distance.value()));
     }
 
     public HashMap<String, Object> data() {

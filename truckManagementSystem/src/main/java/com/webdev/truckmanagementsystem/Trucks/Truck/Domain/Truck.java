@@ -82,7 +82,12 @@ public class Truck {
         this.color = color;
     }
 
-    public void UpdateDistance(TruckTotalDistance distance)
+    public void sumTripDistance(double distance) {
+        double newDistance = this.totalDistance.value() + distance;
+        this.updateDistance(new TruckTotalDistance(newDistance));
+    }
+
+    public void updateDistance(TruckTotalDistance distance)
     {
         if (distance.value() < this.totalDistance.value()) {
             throw new NewTotalDistanceInconsistence("La nueva distancia es menor a la distancia actual, por favor revise");
