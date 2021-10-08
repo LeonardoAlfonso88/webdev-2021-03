@@ -9,13 +9,30 @@
 
     <bean id="SpringApplicationEventBus" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.Spring.SpringApplicationEventBus" />
 
+    <bean id="RabbitMqPublisher" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqPublisher" />
+
+    <bean id="DomainEventInformation" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.DomainEventsInformation" />
+
+    <bean id="RabbitMqEventBus" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqEventBus">
+        <constructor-arg ref="RabbitMqPublisher"/>
+    </bean>
+
+    <bean id="DomainEventJsonDeserializer" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.Serializable.DomainEventJsonDeserializer">
+        <constructor-arg ref="DomainEventInformation"/>
+    </bean>
+
+    <bean id="RabbitMqDomainEventsConsumer" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqDomainEventsConsumer">
+        <constructor-arg ref="DomainEventJsonDeserializer"/>
+        <constructor-arg ref="DomainEventInformation"/>
+    </bean>
+
     <bean id="TripCreator" class="com.webdev.truckmanagementsystem.Trucks.Trip.Application.Create.TripCreator">
         <constructor-arg ref="TripRepository"/>
     </bean>
 
     <bean id="TripFinalized" class="com.webdev.truckmanagementsystem.Trucks.Trip.Application.FinalizedTrip.TripFinalized">
         <constructor-arg ref="TripRepository"/>
-        <constructor-arg ref="SpringApplicationEventBus"/>
+        <constructor-arg ref="RabbitMqEventBus"/>
     </bean>
 
     <bean id="TruckCreator" class="com.webdev.truckmanagementsystem.Trucks.Truck.Application.CreateTruck.TruckCreator">
