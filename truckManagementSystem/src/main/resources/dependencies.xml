@@ -13,6 +13,12 @@
 
     <bean id="DomainEventInformation" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.DomainEventsInformation" />
 
+    <bean id="TokenGeneration" class="com.webdev.truckmanagementsystem.Shared.Application.TokenGeneration" />
+
+    <bean id="UserLogin" class="com.webdev.truckmanagementsystem.Users.User.Application.Login.UserLogin">
+        <constructor-arg ref="TokenGeneration"/>
+    </bean>
+
     <bean id="RabbitMqEventBus" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqEventBus">
         <constructor-arg ref="RabbitMqPublisher"/>
     </bean>

@@ -1,7 +1,7 @@
 package com.webdev.truckmanagementsystem.Trucks.Truck.Infrastructure.Controllers;
 
 import com.webdev.truckmanagementsystem.Trucks.Truck.Application.All.TruckAll;
-import com.webdev.truckmanagementsystem.Trucks.Truck.Application.CreateTruck.TruckAllResponse;
+import com.webdev.truckmanagementsystem.Trucks.Truck.Application.All.TruckAllResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

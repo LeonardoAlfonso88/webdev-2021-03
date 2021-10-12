@@ -1,6 +1,5 @@
 package com.webdev.truckmanagementsystem.Trucks.Truck.Application.All;
 
-import com.webdev.truckmanagementsystem.Trucks.Truck.Application.CreateTruck.TruckAllResponse;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Ports.TruckRepository;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Truck;
 

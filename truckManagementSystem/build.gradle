@@ -21,6 +21,8 @@ dependencies {
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
     implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.2'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
 }
 
 test {

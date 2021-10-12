@@ -1,4 +1,4 @@
-package com.webdev.truckmanagementsystem.Trucks.Truck.Application.CreateTruck;
+package com.webdev.truckmanagementsystem.Trucks.Truck.Application.All;
 
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Truck;
 
