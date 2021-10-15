@@ -14,7 +14,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] AUTH_WHITELIST = {
             "/v3/api-docs/**",
             "/v3/api-docs.yaml",
-            "/swagger-ui/**"
+            "/swagger-ui/**",
+            "/Truck/"
     };
 
 
