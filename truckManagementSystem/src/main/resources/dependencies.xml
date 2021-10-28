@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="TripRepository" class="com.webdev.truckmanagementsystem.Trucks.Trip.Infrastructure.Hibernate.HibernateTripRepository" />
+
+    <bean id="TruckRepository" class="com.webdev.truckmanagementsystem.Trucks.Truck.Infrastructure.Hibernate.HibernateTruckRepository" />
+
+    <bean id="SpringApplicationEventBus" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.Spring.SpringApplicationEventBus" />
+
+    <bean id="RabbitMqPublisher" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqPublisher" />
+
+    <bean id="DomainEventInformation" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.DomainEventsInformation" />
+
+    <bean id="TokenGeneration" class="com.webdev.truckmanagementsystem.Shared.Application.TokenGeneration" />
+
+    <bean id="UserLogin" class="com.webdev.truckmanagementsystem.Users.User.Application.Login.UserLogin">
+        <constructor-arg ref="TokenGeneration"/>
+    </bean>
+
+    <bean id="RabbitMqEventBus" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqEventBus">
+        <constructor-arg ref="RabbitMqPublisher"/>
+    </bean>
+
+    <bean id="DomainEventJsonDeserializer" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.Serializable.DomainEventJsonDeserializer">
+        <constructor-arg ref="DomainEventInformation"/>
+    </bean>
+
+    <bean id="RabbitMqDomainEventsConsumer" class="com.webdev.truckmanagementsystem.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqDomainEventsConsumer">
+        <constructor-arg ref="DomainEventJsonDeserializer"/>
+        <constructor-arg ref="DomainEventInformation"/>
+    </bean>
+
+    <bean id="TripCreator" class="com.webdev.truckmanagementsystem.Trucks.Trip.Application.Create.TripCreator">
+        <constructor-arg ref="TripRepository"/>
+    </bean>
+
+    <bean id="TripFinalized" class="com.webdev.truckmanagementsystem.Trucks.Trip.Application.FinalizedTrip.TripFinalized">
+        <constructor-arg ref="TripRepository"/>
+        <constructor-arg ref="RabbitMqEventBus"/>
+    </bean>
+
+    <bean id="TruckCreator" class="com.webdev.truckmanagementsystem.Trucks.Truck.Application.CreateTruck.TruckCreator">
+        <constructor-arg ref="TruckRepository"/>
+    </bean>
+
+    <bean id="TruckSumDistance" class="com.webdev.truckmanagementsystem.Trucks.Truck.Application.SumTripDistance.TruckSumDistance">
+        <constructor-arg ref="TruckRepository"/>
+    </bean>
+
+    <bean id="TruckAll" class="com.webdev.truckmanagementsystem.Trucks.Truck.Application.All.TruckAll">
+        <constructor-arg ref="TruckRepository"/>
+    </bean>
+
+    <bean id="SumDistanceOnFinalizedTrip" class="com.webdev.truckmanagementsystem.Trucks.Truck.Infrastructure.Listeners.SumDistanceOnFinalizedTrip">
+        <constructor-arg ref="TruckSumDistance"/>
+    </bean>
+
+</beans>

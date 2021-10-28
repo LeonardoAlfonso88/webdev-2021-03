@@ -11,16 +11,27 @@ public class TruckDriver {
     private String identificationNumber;
     private String licenseNumber;
 
-    public TruckDriver(String driverId, String firstName, String lastName, String identificationNumber) {
+    public TruckDriver(String driverId, String firstName, String lastName, String identificationNumber, String licenseNumber) {
         this.driverId = driverId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.identificationNumber = identificationNumber;
+        this.licenseNumber = licenseNumber;
     }
 
     public HashMap<String, Object> data() {
         return new HashMap<>() {{
             put("fullName", fullName());
+            put("identificationNumber", identificationNumber);
+            put("licenseNumber", licenseNumber);
+        }};
+    }
+
+    public HashMap<String, Object> dataDB() {
+        return new HashMap<>() {{
+            put("driverId", driverId);
+            put("firstName", firstName);
+            put("lastName", lastName);
             put("identificationNumber", identificationNumber);
             put("licenseNumber", licenseNumber);
         }};

@@ -2,6 +2,7 @@ package com.webdev.truckmanagementsystem.Trucks.Truck.Application.Create;
 
 import com.webdev.truckmanagementsystem.Shared.Domain.Ids.OwnerId;
 import com.webdev.truckmanagementsystem.Shared.Domain.Ids.TruckId;
+import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Entities.TruckOwner;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Ports.TruckColorValidator;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Ports.TruckRepository;
 import com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Services.DomainColorCentralValidator;
@@ -29,16 +30,18 @@ public class TruckCreator {
                         String mechanicalDate,
                         String owner) {
 
-        TruckColor colorVO = serviceColorValidator.execute(color);
+        //TruckColor colorVO = serviceColorValidator.execute(color);
+
+        TruckOwner truckOwner = new TruckOwner(owner, "Pepe", "Perez", "1234567890");
 
         Truck truck = Truck.Create(new TruckId(id),
                 new TruckBrand(brand),
                 new TruckModelYear(modelYear),
                 new TruckPlate(plate),
-                colorVO,
+                new TruckColor(color),
                 new TruckInsuranceValue(insuranceValue),
                 new TruckMechanicalRevisionDate(mechanicalDate),
-                new OwnerId(owner));
+                new OwnerId(owner), truckOwner);
         repository.save(truck);
     }
 }

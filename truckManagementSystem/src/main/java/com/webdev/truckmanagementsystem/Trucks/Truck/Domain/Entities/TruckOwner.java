@@ -24,6 +24,15 @@ public class TruckOwner {
         }};
     }
 
+    public HashMap<String, Object> dataDB() {
+        return new HashMap<>() {{
+            put("ownerId",ownerId);
+            put("firstName", firstName);
+            put("lastName", lastName);
+            put("identificationNumber", identificationNumber);
+        }};
+    }
+
     private String fullName() {
         return firstName + " " + lastName;
     }

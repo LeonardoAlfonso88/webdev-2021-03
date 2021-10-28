@@ -24,7 +24,7 @@ public class Truck {
     private TruckTotalDistance totalDistance;
     private OwnerId ownerId;
     private Optional<TruckOwner> owner;
-    private Optional<List<TruckDriver>> avaliableDrivers;
+    private Optional<List<TruckDriver>> availableDrivers;
 
     public Truck(TruckId truckId, TruckBrand brand,
                  TruckModelYear modelYear,
@@ -35,7 +35,7 @@ public class Truck {
                  TruckTotalDistance totalDistance,
                  OwnerId ownerId,
                  Optional<TruckOwner> owner,
-                 Optional<List<TruckDriver>> avaliableDrivers) {
+                 Optional<List<TruckDriver>> availableDrivers) {
         this.truckId = truckId;
         this.brand = brand;
         this.modelYear = modelYear;
@@ -46,7 +46,7 @@ public class Truck {
         this.totalDistance = totalDistance;
         this.ownerId = ownerId;
         this.owner = owner;
-        this.avaliableDrivers = avaliableDrivers;
+        this.availableDrivers = availableDrivers;
     }
 
     public static Truck Create(TruckId truckId, TruckBrand brand,
@@ -55,7 +55,7 @@ public class Truck {
                                TruckColor color,
                                TruckInsuranceValue insuranceValue,
                                TruckMechanicalRevisionDate mechanicalRevisionDate,
-                               OwnerId ownerId)
+                               OwnerId ownerId, TruckOwner truckOwner)
     {
         Truck truck = new Truck(truckId,
                 brand,
@@ -66,7 +66,7 @@ public class Truck {
                 mechanicalRevisionDate,
                 new TruckTotalDistance(0d),
                 ownerId,
-                Optional.empty(),
+                Optional.ofNullable(truckOwner),
                 Optional.empty());
         //TODO: Pasos intermedios o eventos derivados
         return truck;
@@ -82,7 +82,12 @@ public class Truck {
         this.color = color;
     }
 
-    public void UpdateDistance(TruckTotalDistance distance)
+    public void sumTripDistance(double distance) {
+        double newDistance = this.totalDistance.value() + distance;
+        this.updateDistance(new TruckTotalDistance(newDistance));
+    }
+
+    public void updateDistance(TruckTotalDistance distance)
     {
         if (distance.value() < this.totalDistance.value()) {
             throw new NewTotalDistanceInconsistence("La nueva distancia es menor a la distancia actual, por favor revise");
@@ -91,7 +96,7 @@ public class Truck {
     }
 
     public HashMap<String, Object> data() {
-        return new HashMap<String, Object>() {{
+        HashMap<String, Object> data = new HashMap<>() {{
             put("id", truckId.value());
             put("brand", brand.value());
             put("modelYear", modelYear.value());
@@ -101,6 +106,19 @@ public class Truck {
             put("mechanicalRevisionDate", mechanicalRevisionDate.value());
             put("ownerId", ownerId.value());
         }};
+        data.putAll(this.dataOwner());
+        return data;
+    }
+
+    public HashMap<String, Object> dataOwner() {
+        HashMap<String, Object> data = new HashMap<>();
+        if(this.owner.isPresent()) {
+            data.put("owner", this.owner.get().data());
+        }
+        else{
+            data.put("owner", null);
+        }
+        return data;
     }
 
     @Override
@@ -115,4 +133,6 @@ public class Truck {
     public int hashCode() {
         return Objects.hash(brand, modelYear, plate);
     }
+
+    private Truck() {}
 }

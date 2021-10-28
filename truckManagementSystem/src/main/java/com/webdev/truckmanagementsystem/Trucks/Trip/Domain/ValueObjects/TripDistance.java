@@ -5,6 +5,10 @@ import com.webdev.truckmanagementsystem.Trucks.Trip.Domain.Exceptions.NotPositiv
 
 public class TripDistance extends DoubleValueObject {
 
+    private TripDistance() {
+
+    }
+
     public TripDistance(Double distance) {
         validate(distance);
         this.value = distance;
@@ -15,6 +19,9 @@ public class TripDistance extends DoubleValueObject {
     }
 
     private void positiveDistance(Double distance) {
-        throw new NotPositiveDistance("La distancia no puede ser negativa");
+        Double base = Double.parseDouble("0");
+        if(distance.compareTo(base) <= 0) {
+            throw new NotPositiveDistance("La distancia no puede ser negativa");
+        }
     }
 }

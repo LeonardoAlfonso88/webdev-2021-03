@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.webdev.truckmanagementsystem.Trucks.Truck.Domain.Truck" table="trucks">
+
+        <composite-id name="truckId" class="com.webdev.truckmanagementsystem.Shared.Domain.Ids.TruckId" access="field">
+            <key-property name="value" column="id" access="field" length="36"/>
+        </composite-id>
+
+        <component name="brand" class="com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckBrand" access="field">
+            <property name="value" column="brand" access="field" type="string"/>
+        </component>
+
+        <component name="modelYear" class="com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckModelYear" access="field">
+            <property name="value" column="modelYear" access="field" type="integer"/>
+        </component>
+
+        <component name="plate" class="com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckPlate" access="field">
+            <property name="value" column="plate" access="field" type="string"/>
+        </component>
+
+        <component name="color" class="com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckColor" access="field">
+            <property name="value" column="color" access="field" type="string"/>
+        </component>
+
+        <component name="insuranceValue" class="com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckInsuranceValue" access="field">
+            <property name="value" column="insuranceValue" access="field" type="double"/>
+        </component>
+
+        <component name="mechanicalRevisionDate" class="com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckMechanicalRevisionDate" access="field">
+            <property name="value" column="mechanicalRevisionDate" access="field" type="string"/>
+        </component>
+
+        <component name="totalDistance" class="com.webdev.truckmanagementsystem.Trucks.Truck.Domain.ValueObjects.TruckTotalDistance" access="field">
+            <property name="value" column="totalDistance" access="field" type="double"/>
+        </component>
+
+        <component name="ownerId" class="com.webdev.truckmanagementsystem.Shared.Domain.Ids.OwnerId" access="field">
+            <property name="value" column="ownerId" access="field" length="36"/>
+        </component>
+
+        <property name="owner" column="owner" access="field">
+            <type name="com.webdev.truckmanagementsystem.Trucks.Truck.Infrastructure.Hibernate.TruckOwnerCustomType">
+            </type>
+        </property>
+
+        <property name="availableDrivers" column="availableDrivers" access="field">
+            <type name="com.webdev.truckmanagementsystem.Trucks.Truck.Infrastructure.Hibernate.TruckDriverCustomType">
+            </type>
+        </property>
+
+    </class>
+</hibernate-mapping>

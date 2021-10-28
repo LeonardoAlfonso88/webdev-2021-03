@@ -15,6 +15,14 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework:spring-orm:5.2.2.RELEASE'
+    implementation 'org.apache.tomcat:tomcat-dbcp:9.0.29'
+    implementation 'org.hibernate:hibernate-core:5.4.9.Final'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.2'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
 }
 
 test {

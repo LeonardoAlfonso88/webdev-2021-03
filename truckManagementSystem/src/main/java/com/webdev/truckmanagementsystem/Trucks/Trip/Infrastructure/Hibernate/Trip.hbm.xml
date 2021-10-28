@@ -1,0 +1,50 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.webdev.truckmanagementsystem.Trucks.Trip.Domain.Trip" table="trips">
+
+        <composite-id name="tripId" class="com.webdev.truckmanagementsystem.Shared.Domain.Ids.TripId" access="field">
+            <key-property name="value" column="id" access="field" length="36"/>
+        </composite-id>
+
+        <component name="origin" class="com.webdev.truckmanagementsystem.Trucks.Trip.Domain.ValueObjects.TripOrigin" access="field">
+            <property name="value" column="origin" access="field" type="string"/>
+        </component>
+
+        <component name="destiny" class="com.webdev.truckmanagementsystem.Trucks.Trip.Domain.ValueObjects.TripDestiny" access="field">
+            <property name="value" column="destiny" access="field" type="string"/>
+        </component>
+
+        <component name="distance" class="com.webdev.truckmanagementsystem.Trucks.Trip.Domain.ValueObjects.TripDistance" access="field">
+            <property name="value" column="distance" access="field" type="double"/>
+        </component>
+
+        <component name="status" class="com.webdev.truckmanagementsystem.Trucks.Trip.Domain.ValueObjects.TripStatus" access="field">
+            <property name="value" column="status" access="field" type="string"/>
+        </component>
+
+        <component name="loadWeight" class="com.webdev.truckmanagementsystem.Trucks.Trip.Domain.ValueObjects.TripLoadWeight" access="field">
+            <property name="value" column="loadWeight" access="field" type="double"/>
+        </component>
+
+        <component name="initialDate" class="com.webdev.truckmanagementsystem.Trucks.Trip.Domain.ValueObjects.TripInitialDate" access="field">
+            <property name="value" column="initialDate" access="field" type="string"/>
+        </component>
+
+        <component name="plannedFinalDate" class="com.webdev.truckmanagementsystem.Trucks.Trip.Domain.ValueObjects.TripPlannedFinalDate" access="field">
+            <property name="value" column="plannedFinalDate" access="field" type="string"/>
+        </component>
+
+        <component name="realFinalDate" class="com.webdev.truckmanagementsystem.Trucks.Trip.Domain.ValueObjects.TripRealFinalDate" access="field">
+            <property name="value" column="realFinalDate" access="field" type="string"/>
+        </component>
+
+        <component name="truckId" class="com.webdev.truckmanagementsystem.Shared.Domain.Ids.TruckId" access="field">
+            <property name="value" column="truckId" access="field" length="36"/>
+        </component>
+
+    </class>
+</hibernate-mapping>

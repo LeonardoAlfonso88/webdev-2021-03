@@ -5,6 +5,10 @@ import com.webdev.truckmanagementsystem.Trucks.Trip.Domain.Exceptions.NotValidTr
 
 public class TripOrigin extends StringValueObject {
 
+    private TripOrigin() {
+
+    }
+
     public TripOrigin(String origin) {
         validate(origin);
         this.value = origin;

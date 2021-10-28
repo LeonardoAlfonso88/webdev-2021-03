@@ -6,6 +6,10 @@ import com.webdev.truckmanagementsystem.Trucks.Trip.Domain.Exceptions.WeightOutR
 
 public class TripLoadWeight extends DoubleValueObject {
 
+    private TripLoadWeight() {
+
+    }
+
     public TripLoadWeight(Double weight) {
         validate(weight);
         this.value = weight;
@@ -16,7 +20,9 @@ public class TripLoadWeight extends DoubleValueObject {
     }
 
     private void validWeight(Double weight) {
-        if (weight > 15000 || weight < 2000) {
+        Double a = Double.parseDouble("15000");
+        Double b = Double.parseDouble("2000");
+        if (weight.compareTo(a) > 0 || weight.compareTo(b) < 0) {
             throw new WeightOutRange("El peso de la carga debe estar entre 2000Kg y 15000kg");
         }
     }
