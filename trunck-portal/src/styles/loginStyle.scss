@@ -1,0 +1,78 @@
+.wrapper-login {
+  height: 100vh;
+  overflow: hidden;
+  background-color: #918d8d;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  font-family: "Open Sans", sans-serif;
+}
+
+.form-login {
+  background-color: #dcdcdc;
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .login-title {
+    font-size: 2rem;
+    color: #1a456b;
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+
+  .wrapper-input {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 1rem auto;
+
+    .tag-input-login {
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .input-login {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: #1a456b 1.5px solid;
+      outline: none;
+      font-size: 1.1rem;
+    }
+  }
+
+  .submit-login {
+    border: none;
+    padding: 0.5rem 3rem;
+    border-radius: 0.5rem;
+    background-color: #1a456b;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+}
+
+.image-login {
+  background-color: #1a456b;
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .truck-image {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    margin-bottom: 3rem;
+  }
+
+  .legend {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    color: #e2d36c;
+  }
+}
