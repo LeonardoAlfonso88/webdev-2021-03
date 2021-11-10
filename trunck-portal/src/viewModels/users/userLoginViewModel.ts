@@ -15,7 +15,7 @@ export function vm() {
       userLogin.value
     );
     userStore().save(userAuthenticated.value);
-    await router.push("/pruebas");
+    await router.push("/listaCamiones");
   }
 
   return {
