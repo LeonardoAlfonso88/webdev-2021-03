@@ -77,7 +77,8 @@ export default defineComponent({
       }
 
       .icon-option {
-        margin-right: 0.7rem;
+        margin-right: 1rem;
+        width: 1.5rem;
       }
 
       .label-option {

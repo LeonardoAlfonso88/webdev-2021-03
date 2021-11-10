@@ -1,0 +1,44 @@
+[
+  {
+    "plate": "ABC123",
+    "brand": "Ford",
+    "color": "Negro",
+    "modelYear": 2006,
+    "totalKilometers": 200000
+  },
+  {
+    "plate": "ABC456",
+    "brand": "Chevrolet",
+    "color": "Blanco",
+    "modelYear": 2002,
+    "totalKilometers": 15000
+  },
+  {
+    "plate": "DDD123",
+    "brand": "Ford",
+    "color": "Azul",
+    "modelYear": 2010,
+    "totalKilometers": 60000
+  },
+  {
+    "plate": "KKK123",
+    "brand": "Ford",
+    "color": "Rojo",
+    "modelYear": 1998,
+    "totalKilometers": 1200000
+  },
+  {
+    "plate": "ZXY789",
+    "brand": "Renault",
+    "color": "Amarillo",
+    "modelYear": 2015,
+    "totalKilometers": 26000
+  },
+  {
+    "plate": "HYU749",
+    "brand": "Ford",
+    "color": "Verde",
+    "modelYear": 2001,
+    "totalKilometers": 300000
+  }
+]

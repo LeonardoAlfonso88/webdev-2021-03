@@ -44,6 +44,7 @@ export default defineComponent({
   grid-template-rows: auto 1fr;
   height: 100vh;
   font-family: "Open Sans", sans-serif;
+  overflow-y: hidden;
 }
 
 .header {
@@ -63,5 +64,6 @@ export default defineComponent({
   grid-row: 2 / 3;
   background-color: #dcdcdc;
   padding: 2rem 2.4rem 0;
+  overflow-y: auto;
 }
 </style>
